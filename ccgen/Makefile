@@ -1,13 +1,13 @@
 
 CC=gcc
-CFLAGS=-I.
-OBJ=ccgen.o getopt.o
+CFLAGS=
+OBJ=ccgen.o
 
 %.o: %.c 
 	$(CC) $(CFLAGS) -c -o $@ $< 
 
 ccgen: $(OBJ)
-	$(CC) -o ccgen ccgen.o getopt.o
+	$(CC) -o ccgen ccgen.o 
 
 .PHONY: clean
 

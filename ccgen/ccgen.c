@@ -5,11 +5,11 @@
 #include <time.h>
 #include <stdint.h>
 
-#include "getopt.h"
 
 #ifdef WIN32
 #include <io.h>
 #include <Windows.h>
+#include "getopt.h"
 
 typedef struct timezone {
 	int tz_minuteswest;
@@ -40,7 +40,8 @@ int gettimeofday(struct timeval * tp, struct timezone * tzp)
 #pragma warning(disable: 4996)
 #endif
 
-#ifdef __unix__
+#if defined(__unix__) || defined(__APPLE__)
+#include <getopt.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/time.h>
@@ -185,6 +186,7 @@ const char* generate_pan(char prefix, int length)
 	buf[length - 1] = check_digit;
 	return buf;
 }
+
 const char* generate_track1(char prefix, int length)
 {
 	static char buf[256];
