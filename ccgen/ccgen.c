@@ -301,14 +301,13 @@ int main(int argc, char* argv[])
 		char* p = circ_buf[idx % (sizeof(circ_buf) / sizeof(circ_buf[0]))];
 		if (gen_track1) {
 			strcpy(p, generate_track1(prefix_lengths[n].prefix, prefix_lengths[n].length));
+            if (gen_track2)
+                strcat(p, generate_track2(prefix_lengths[n].prefix, prefix_lengths[n].length));
 			printl("%s\n", p);
 		}
-
-		if (gen_track2) {
-			idx++;
+        else if (gen_track2) {
 			p = circ_buf[idx % (sizeof(circ_buf) / sizeof(circ_buf[0]))];
-			strcpy(p, generate_track1(prefix_lengths[n].prefix, prefix_lengths[n].length));
-			strcat(p, generate_track2(prefix_lengths[n].prefix, prefix_lengths[n].length));
+            strcpy(p, generate_track2(prefix_lengths[n].prefix, prefix_lengths[n].length));
 			printl("%s\n", p);
 		}
 		Sleep(delay);

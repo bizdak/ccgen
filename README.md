@@ -28,5 +28,12 @@ e.g.
 ccgen -1 -2 -s 0 -d 1000
 ```
 
+Additional Information
+----------------------
+
+http://sagan.gae.ucm.es/~padilla/extrawork/magexam1.html
+
+
+
 Lloyd Macrohon <jl.macrohon@gmail.com>
 
